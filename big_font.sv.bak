@@ -1,9 +1,0 @@
-module big_font( 
-               input [10:0]	addr,
-		         output [7:0]	data
-		         );
-
-
-
-
-endmodule
