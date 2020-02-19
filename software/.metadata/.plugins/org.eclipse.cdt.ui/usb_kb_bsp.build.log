@@ -1,0 +1,7 @@
+02:31:25 **** Build of configuration Nios II for project usb_kb_bsp ****
+make all 
+make: /bin/sh: Command not found
+make: *** No rule to make target '/system.h', needed by 'all'.  Stop.
+
+02:31:26 Build Finished (took 285ms)
+

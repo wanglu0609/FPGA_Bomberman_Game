@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue May 02 01:54:19 2017
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : Bomberman
+Top-level Entity Name : Game_Hub
+Family : Cyclone IV E
+Total logic elements : 5,816
+    Total combinational functions : 5,815
+    Dedicated logic registers : 621
+Total registers : 621
+Total pins : 832
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

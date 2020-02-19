@@ -1,0 +1,74 @@
+module Game_Hub (
+	input logic Reset, Frame_Clk,
+	input logic [15:0] Keycode,
+	output [9:0] Avatar_X_1, Avatar_Y_1, Avatar_Dir_1, Avatar_Step_1, Avatar_X_2, Avatar_Y_2, Avatar_Dir_2, Avatar_Step_2, Avatar_S,
+	output [143:0] Wall_Map, Bomb_Map, Tree_Map, Treasure_Map, Flame_Map
+);
+	
+	logic [9:0] Avatar_X_Center, Avatar_Y_Center, Bomb_X, Bomb_Y;
+	logic Done;
+	assign Avatar_X_Center_1 = 10'd60;
+	assign Avatar_Y_Center_1 = 10'd60;
+	assign Done = 1'b0;
+	assign Avatar_Step = 10'd48;
+	assign Avatar_S = 10'd40;
+	
+	enum logic [3:0] {WELCOME, GAME, SCORE, END} Curr_State, Next_State;
+	
+	always_ff@(posedge Frame_Clk) begin
+		if (Reset == 1'b0) begin
+			Curr_State <= WELCOME;
+		end else begin 
+			Curr_State <= Next_State;
+		end
+	end
+	
+	always_comb begin
+		Next_State = Curr_State;
+		unique case (Curr_State)
+			WELCOME: begin
+				if (Keycode[7:0] == 8'h15)
+					Next_State = GAME;
+			end
+			GAME: begin
+				if (Done)
+					Next_State = SCORE;
+			end
+			SCORE: begin
+				if (Keycode[7:0] == 8'h11)
+					Next_State = END;
+				else if (Keycode[7:0] == 8'h1c)
+					Next_State = GAME;
+			end
+			END: begin
+			end
+		endcase
+	end
+	
+	Avatar Player_1 (
+		.Frame_Clk,
+		.Reset,
+		.Keycode,
+		.Wall_Map,
+		.Bomb_Map,
+		.Tree_Map,
+		.Treasure_Map,
+		.Avatar_X_Center(Avatar_X_Center_1),
+		.Avatar_Y_Center(Avatar_Y_Center_1),
+		.Avatar_X(Avatar_X_1),
+		.Avatar_Y(Avatar_Y_1),
+		.Avatar_Step(Avatar_Step_1)
+	);
+	
+	Map Game_Map (
+		.Frame_Clk,
+		.Reset,
+		.Bomb_X,
+		.Bomb_Y,
+		.Wall_Map,
+		.Bomb_Map,
+		.Tree_Map,
+		.Treasure_Map
+	);
+
+endmodule

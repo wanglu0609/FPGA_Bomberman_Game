@@ -1,0 +1,42 @@
+Quartus Prime Archive log --	D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/__lab7_usb.auto.qarlog
+
+Archive:	D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/__lab7_usb.auto.qar
+Date:		Wed Apr 19 14:09:55 2017
+Quartus Prime		16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+	=========== Files Selected: ===========
+Color_Mapper.sv
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/a_dpfifo_l011.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/a_fefifo_7cf.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/altsyncram_0fh1.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/altsyncram_6mc1.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/altsyncram_ac71.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/altsyncram_hhh1.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/altsyncram_il91.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/altsyncram_nio1.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/altsyncram_veh1.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/cntr_1ob.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/cntr_do7.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/lab7_usb.cbx.xml
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/lab8.cbx.xml
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/lab8.qpf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/mult_p5t.tdf
+D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/scfifo_jr21.tdf
+HexDriver.sv
+VGA_controller.sv
+__lab7_usb.auto.qarlog
+ball.sv
+d:/intelfpga_lite/16.1/quartus/bin64/assignment_defaults.qdf
+hpi_io_intf.sv
+lab7_usb.flow.rpt
+lab7_usb.map.rpt
+lab7_usb.map.summary
+lab7_usb.qsf
+lab8.sv
+lab8_assignment_defaults.qdf
+lab8_tmp_archive.qarlog
+nios_system.qsys
+	======= Total: 31 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

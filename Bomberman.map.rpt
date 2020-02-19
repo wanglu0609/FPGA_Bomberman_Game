@@ -1,0 +1,1310 @@
+Analysis & Synthesis report for Bomberman
+Tue May 02 01:54:19 2017
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Game_Hub|Curr_State
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: Avatar_1:Player_1
+ 15. Parameter Settings for User Entity Instance: Avatar_2:Player_2
+ 16. Parameter Settings for Inferred Entity Instance: Avatar_1:Player_1|lpm_divide:Div0
+ 17. Parameter Settings for Inferred Entity Instance: Avatar_2:Player_2|lpm_divide:Div0
+ 18. Parameter Settings for Inferred Entity Instance: Avatar_1:Player_1|lpm_divide:Div1
+ 19. Parameter Settings for Inferred Entity Instance: Avatar_2:Player_2|lpm_divide:Div1
+ 20. Port Connectivity Checks: "Map:Game_Map|Treasure:Get_Treasures"
+ 21. Port Connectivity Checks: "Map:Game_Map|Tree:Get_Trees"
+ 22. Port Connectivity Checks: "Map:Game_Map|Wall:Get_Walls"
+ 23. Port Connectivity Checks: "Map:Game_Map"
+ 24. Port Connectivity Checks: "Avatar_2:Player_2"
+ 25. Port Connectivity Checks: "Avatar_1:Player_1"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue May 02 01:54:19 2017       ;
+; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                      ; Bomberman                                   ;
+; Top-level Entity Name              ; Game_Hub                                    ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 5,816                                       ;
+;     Total combinational functions  ; 5,815                                       ;
+;     Dedicated logic registers      ; 621                                         ;
+; Total registers                    ; 621                                         ;
+; Total pins                         ; 832                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; Game_Hub           ; Bomberman          ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                            ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
+; Game_Hub.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv                ;         ;
+; Map.sv                           ; yes             ; User SystemVerilog HDL File  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Map.sv                     ;         ;
+; Tree.sv                          ; yes             ; User SystemVerilog HDL File  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Tree.sv                    ;         ;
+; Avatar_1.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar_1.sv                ;         ;
+; Avatar_2.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar_2.sv                ;         ;
+; Wall.sv                          ; yes             ; User SystemVerilog HDL File  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Wall.sv                    ;         ;
+; Treasure.sv                      ; yes             ; User SystemVerilog HDL File  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Treasure.sv                ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; d:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_divide.tdf                   ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; d:/intelfpga_lite/16.1/quartus/libraries/megafunctions/abs_divider.inc                  ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; d:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sign_div_unsign.inc              ;         ;
+; aglobal161.inc                   ; yes             ; Megafunction                 ; d:/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc                   ;         ;
+; db/lpm_divide_uim.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/lpm_divide_uim.tdf      ;         ;
+; db/sign_div_unsign_mlh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/sign_div_unsign_mlh.tdf ;         ;
+; db/alt_u_div_07f.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/alt_u_div_07f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/add_sub_8pc.tdf         ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimated Total logic elements              ; 5,816           ;
+;                                             ;                 ;
+; Total combinational functions               ; 5815            ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 4084            ;
+;     -- 3 input functions                    ; 1182            ;
+;     -- <=2 input functions                  ; 549             ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 5466            ;
+;     -- arithmetic mode                      ; 349             ;
+;                                             ;                 ;
+; Total registers                             ; 621             ;
+;     -- Dedicated logic registers            ; 621             ;
+;     -- I/O registers                        ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 832             ;
+;                                             ;                 ;
+; Embedded Multiplier 9-bit elements          ; 0               ;
+;                                             ;                 ;
+; Maximum fan-out node                        ; Frame_Clk~input ;
+; Maximum fan-out                             ; 621             ;
+; Total fan-out                               ; 24017           ;
+; Average fan-out                             ; 2.97            ;
++---------------------------------------------+-----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                     ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                         ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |Game_Hub                                 ; 5815 (77)           ; 621 (11)                  ; 0           ; 0            ; 0       ; 0         ; 832  ; 0            ; |Game_Hub                                                                                                                   ; Game_Hub            ; work         ;
+;    |Avatar_1:Player_1|                    ; 746 (619)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_1:Player_1                                                                                                 ; Avatar_1            ; work         ;
+;       |lpm_divide:Div0|                   ; 71 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_1:Player_1|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_uim:auto_generated|  ; 71 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_1:Player_1|lpm_divide:Div0|lpm_divide_uim:auto_generated                                                   ; lpm_divide_uim      ; work         ;
+;             |sign_div_unsign_mlh:divider| ; 71 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_1:Player_1|lpm_divide:Div0|lpm_divide_uim:auto_generated|sign_div_unsign_mlh:divider                       ; sign_div_unsign_mlh ; work         ;
+;                |alt_u_div_07f:divider|    ; 71 (71)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_1:Player_1|lpm_divide:Div0|lpm_divide_uim:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_07f:divider ; alt_u_div_07f       ; work         ;
+;       |lpm_divide:Div1|                   ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_1:Player_1|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_uim:auto_generated|  ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_1:Player_1|lpm_divide:Div1|lpm_divide_uim:auto_generated                                                   ; lpm_divide_uim      ; work         ;
+;             |sign_div_unsign_mlh:divider| ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_1:Player_1|lpm_divide:Div1|lpm_divide_uim:auto_generated|sign_div_unsign_mlh:divider                       ; sign_div_unsign_mlh ; work         ;
+;                |alt_u_div_07f:divider|    ; 56 (56)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_1:Player_1|lpm_divide:Div1|lpm_divide_uim:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_07f:divider ; alt_u_div_07f       ; work         ;
+;    |Avatar_2:Player_2|                    ; 746 (622)           ; 47 (47)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_2:Player_2                                                                                                 ; Avatar_2            ; work         ;
+;       |lpm_divide:Div0|                   ; 68 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_2:Player_2|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_uim:auto_generated|  ; 68 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_2:Player_2|lpm_divide:Div0|lpm_divide_uim:auto_generated                                                   ; lpm_divide_uim      ; work         ;
+;             |sign_div_unsign_mlh:divider| ; 68 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_2:Player_2|lpm_divide:Div0|lpm_divide_uim:auto_generated|sign_div_unsign_mlh:divider                       ; sign_div_unsign_mlh ; work         ;
+;                |alt_u_div_07f:divider|    ; 68 (68)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_2:Player_2|lpm_divide:Div0|lpm_divide_uim:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_07f:divider ; alt_u_div_07f       ; work         ;
+;       |lpm_divide:Div1|                   ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_2:Player_2|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_uim:auto_generated|  ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_2:Player_2|lpm_divide:Div1|lpm_divide_uim:auto_generated                                                   ; lpm_divide_uim      ; work         ;
+;             |sign_div_unsign_mlh:divider| ; 56 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_2:Player_2|lpm_divide:Div1|lpm_divide_uim:auto_generated|sign_div_unsign_mlh:divider                       ; sign_div_unsign_mlh ; work         ;
+;                |alt_u_div_07f:divider|    ; 56 (56)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Avatar_2:Player_2|lpm_divide:Div1|lpm_divide_uim:auto_generated|sign_div_unsign_mlh:divider|alt_u_div_07f:divider ; alt_u_div_07f       ; work         ;
+;    |Map:Game_Map|                         ; 4246 (4246)         ; 516 (516)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Game_Hub|Map:Game_Map                                                                                                      ; Map                 ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------+
+; State Machine - |Game_Hub|Curr_State                                                                            ;
++--------------------+------------------+-----------------+-----------------+--------------------+----------------+
+; Name               ; Curr_State.SCORE ; Curr_State.WAIT ; Curr_State.GAME ; Curr_State.WELCOME ; Curr_State.END ;
++--------------------+------------------+-----------------+-----------------+--------------------+----------------+
+; Curr_State.WELCOME ; 0                ; 0               ; 0               ; 0                  ; 0              ;
+; Curr_State.GAME    ; 0                ; 0               ; 1               ; 1                  ; 0              ;
+; Curr_State.WAIT    ; 0                ; 1               ; 0               ; 1                  ; 0              ;
+; Curr_State.SCORE   ; 1                ; 0               ; 0               ; 1                  ; 0              ;
+; Curr_State.END     ; 0                ; 0               ; 0               ; 1                  ; 1              ;
++--------------------+------------------+-----------------+-----------------+--------------------+----------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                ;
++------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------+
+; Register name                                                                                                                                  ; Reason for Removal                               ;
++------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------+
+; Avatar_2:Player_2|Init[1..31]                                                                                                                  ; Stuck at GND due to stuck port data_in           ;
+; Avatar_1:Player_1|Init[1..31]                                                                                                                  ; Stuck at GND due to stuck port data_in           ;
+; Avatar_1:Player_1|Ready[1..9,11..31]                                                                                                           ; Merged with Avatar_1:Player_1|Ready[10]          ;
+; Avatar_2:Player_2|Init[0]                                                                                                                      ; Merged with Avatar_1:Player_1|Init[0]            ;
+; Avatar_2:Player_2|Ready[1..9,11..31]                                                                                                           ; Merged with Avatar_2:Player_2|Ready[10]          ;
+; Map:Game_Map|Bomb_Index_Temp_1[15..31]                                                                                                         ; Merged with Map:Game_Map|Bomb_Index_Temp_1[14]   ;
+; Map:Game_Map|Bomb_Index_Temp_2[15..31]                                                                                                         ; Merged with Map:Game_Map|Bomb_Index_Temp_2[14]   ;
+; Avatar_1:Player_1|Avatar_X_Motion[2..9]                                                                                                        ; Merged with Avatar_1:Player_1|Avatar_X_Motion[1] ;
+; Avatar_1:Player_1|Avatar_Y_Motion[2..9]                                                                                                        ; Merged with Avatar_1:Player_1|Avatar_Y_Motion[1] ;
+; Avatar_2:Player_2|Avatar_X_Motion[2..9]                                                                                                        ; Merged with Avatar_2:Player_2|Avatar_X_Motion[1] ;
+; Avatar_2:Player_2|Avatar_Y_Motion[2..9]                                                                                                        ; Merged with Avatar_2:Player_2|Avatar_Y_Motion[1] ;
+; Avatar_1:Player_1|Bomb_Index_In[15..31]                                                                                                        ; Merged with Avatar_1:Player_1|Bomb_Index_In[14]  ;
+; Avatar_2:Player_2|Bomb_Index_In[15..31]                                                                                                        ; Merged with Avatar_2:Player_2|Bomb_Index_In[14]  ;
+; Avatar_2:Player_2|Bomb_Index_In[14]                                                                                                            ; Stuck at GND due to stuck port data_in           ;
+; Avatar_1:Player_1|Bomb_Index_In[14]                                                                                                            ; Stuck at GND due to stuck port data_in           ;
+; Map:Game_Map|Bomb_Index_Temp_2[14]                                                                                                             ; Stuck at GND due to stuck port data_in           ;
+; Map:Game_Map|Bomb_Index_Temp_1[14]                                                                                                             ; Stuck at GND due to stuck port data_in           ;
+; Map:Game_Map|Tree_Map_Alt[0..28,31..39,41,42,44..50,52,54,55,57..61,63,64,68,70..73,75,79,80,82..86,88,89,91,93..99,101,102,104..112,115..143] ; Stuck at GND due to stuck port data_in           ;
+; Curr_State~2                                                                                                                                   ; Lost fanout                                      ;
+; Curr_State~3                                                                                                                                   ; Lost fanout                                      ;
+; Curr_State~5                                                                                                                                   ; Lost fanout                                      ;
+; Avatar_1:Player_1|Bomb_Index_In[10..13]                                                                                                        ; Stuck at GND due to stuck port data_in           ;
+; Avatar_2:Player_2|Bomb_Index_In[10..13]                                                                                                        ; Stuck at GND due to stuck port data_in           ;
+; Map:Game_Map|Bomb_Index_Temp_2[10..13]                                                                                                         ; Stuck at GND due to stuck port data_in           ;
+; Map:Game_Map|Bomb_Index_Temp_1[10..13]                                                                                                         ; Stuck at GND due to stuck port data_in           ;
+; Avatar_1:Player_1|Ready[10]                                                                                                                    ; Stuck at GND due to stuck port data_in           ;
+; Total Number of Removed Registers = 367                                                                                                        ;                                                  ;
++------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                               ;
++-------------------------------------+---------------------------+-------------------------------------------------------------------------+
+; Register name                       ; Reason for Removal        ; Registers Removed due to This Register                                  ;
++-------------------------------------+---------------------------+-------------------------------------------------------------------------+
+; Avatar_2:Player_2|Bomb_Index_In[14] ; Stuck at GND              ; Map:Game_Map|Bomb_Index_Temp_2[14], Map:Game_Map|Tree_Map_Alt[0],       ;
+;                                     ; due to stuck port data_in ; Map:Game_Map|Tree_Map_Alt[1], Map:Game_Map|Tree_Map_Alt[2],             ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[3], Map:Game_Map|Tree_Map_Alt[4],             ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[5], Map:Game_Map|Tree_Map_Alt[6],             ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[7], Map:Game_Map|Tree_Map_Alt[8],             ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[9], Map:Game_Map|Tree_Map_Alt[10],            ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[11], Map:Game_Map|Tree_Map_Alt[12],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[13], Map:Game_Map|Tree_Map_Alt[14],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[15], Map:Game_Map|Tree_Map_Alt[16],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[17], Map:Game_Map|Tree_Map_Alt[18],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[19], Map:Game_Map|Tree_Map_Alt[20],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[21], Map:Game_Map|Tree_Map_Alt[22],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[23], Map:Game_Map|Tree_Map_Alt[24],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[25], Map:Game_Map|Tree_Map_Alt[26],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[27], Map:Game_Map|Tree_Map_Alt[28],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[31], Map:Game_Map|Tree_Map_Alt[32],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[33], Map:Game_Map|Tree_Map_Alt[34],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[35], Map:Game_Map|Tree_Map_Alt[36],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[37], Map:Game_Map|Tree_Map_Alt[38],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[39], Map:Game_Map|Tree_Map_Alt[41],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[42], Map:Game_Map|Tree_Map_Alt[44],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[45], Map:Game_Map|Tree_Map_Alt[46],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[47], Map:Game_Map|Tree_Map_Alt[48],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[49], Map:Game_Map|Tree_Map_Alt[50],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[52], Map:Game_Map|Tree_Map_Alt[54],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[55], Map:Game_Map|Tree_Map_Alt[57],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[58], Map:Game_Map|Tree_Map_Alt[59],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[60], Map:Game_Map|Tree_Map_Alt[61],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[63], Map:Game_Map|Tree_Map_Alt[64],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[68], Map:Game_Map|Tree_Map_Alt[70],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[71], Map:Game_Map|Tree_Map_Alt[72],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[73], Map:Game_Map|Tree_Map_Alt[75],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[79], Map:Game_Map|Tree_Map_Alt[80],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[82], Map:Game_Map|Tree_Map_Alt[83],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[84], Map:Game_Map|Tree_Map_Alt[85],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[86], Map:Game_Map|Tree_Map_Alt[88],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[89], Map:Game_Map|Tree_Map_Alt[91],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[93], Map:Game_Map|Tree_Map_Alt[94],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[95], Map:Game_Map|Tree_Map_Alt[96],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[97], Map:Game_Map|Tree_Map_Alt[98],           ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[99], Map:Game_Map|Tree_Map_Alt[101],          ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[102], Map:Game_Map|Tree_Map_Alt[104],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[105], Map:Game_Map|Tree_Map_Alt[106],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[107], Map:Game_Map|Tree_Map_Alt[108],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[109], Map:Game_Map|Tree_Map_Alt[110],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[111], Map:Game_Map|Tree_Map_Alt[112],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[115], Map:Game_Map|Tree_Map_Alt[116],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[117], Map:Game_Map|Tree_Map_Alt[118],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[119], Map:Game_Map|Tree_Map_Alt[120],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[121], Map:Game_Map|Tree_Map_Alt[122],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[123], Map:Game_Map|Tree_Map_Alt[124],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[125], Map:Game_Map|Tree_Map_Alt[126],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[127], Map:Game_Map|Tree_Map_Alt[128],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[129], Map:Game_Map|Tree_Map_Alt[130],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[131], Map:Game_Map|Tree_Map_Alt[132],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[133], Map:Game_Map|Tree_Map_Alt[134],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[135], Map:Game_Map|Tree_Map_Alt[136],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[137], Map:Game_Map|Tree_Map_Alt[138],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[139], Map:Game_Map|Tree_Map_Alt[140],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[141], Map:Game_Map|Tree_Map_Alt[142],         ;
+;                                     ;                           ; Map:Game_Map|Tree_Map_Alt[143], Avatar_1:Player_1|Ready[10]             ;
+; Avatar_1:Player_1|Bomb_Index_In[10] ; Stuck at GND              ; Map:Game_Map|Bomb_Index_Temp_1[10], Map:Game_Map|Bomb_Index_Temp_1[11], ;
+;                                     ; due to stuck port data_in ; Map:Game_Map|Bomb_Index_Temp_1[12], Map:Game_Map|Bomb_Index_Temp_1[13]  ;
+; Avatar_2:Player_2|Bomb_Index_In[10] ; Stuck at GND              ; Map:Game_Map|Bomb_Index_Temp_2[10], Map:Game_Map|Bomb_Index_Temp_2[11], ;
+;                                     ; due to stuck port data_in ; Map:Game_Map|Bomb_Index_Temp_2[12], Map:Game_Map|Bomb_Index_Temp_2[13]  ;
+; Avatar_1:Player_1|Bomb_Index_In[14] ; Stuck at GND              ; Map:Game_Map|Bomb_Index_Temp_1[14]                                      ;
+;                                     ; due to stuck port data_in ;                                                                         ;
++-------------------------------------+---------------------------+-------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 621   ;
+; Number of registers using Synchronous Clear  ; 344   ;
+; Number of registers using Synchronous Load   ; 30    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 155   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; Avatar_1:Player_1|Init[0]              ; 52      ;
+; Avatar_1:Player_1|Ready[0]             ; 15      ;
+; Avatar_2:Player_2|Ready[0]             ; 5       ;
+; Total number of inverted registers = 3 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Game_Hub|Map:Game_Map|Score_In_1[6]          ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Game_Hub|Map:Game_Map|Score_In_2[4]          ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |Game_Hub|Avatar_1:Player_1|Avatar_X_Pos[7]   ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |Game_Hub|Avatar_2:Player_2|Avatar_Y_Pos[8]   ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Game_Hub|Avatar_1:Player_1|Step_Count[0]     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Game_Hub|Avatar_2:Player_2|Step_Count[5]     ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Game_Hub|Map:Game_Map|Bomb_Clk_Count_1[9]    ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |Game_Hub|Map:Game_Map|Bomb_Index_Temp_1[11]  ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |Game_Hub|Map:Game_Map|Bomb_Clk_Count_2[9]    ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |Game_Hub|Map:Game_Map|Bomb_Index_Temp_2[2]   ;
+; 5:1                ; 14 bits   ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |Game_Hub|Avatar_1:Player_1|Bomb_Index_In[10] ;
+; 5:1                ; 14 bits   ; 42 LEs        ; 14 LEs               ; 28 LEs                 ; Yes        ; |Game_Hub|Avatar_2:Player_2|Bomb_Index_In[0]  ;
+; 6:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |Game_Hub|Clk_Counter[0]                      ;
+; 258:1              ; 2 bits    ; 344 LEs       ; 6 LEs                ; 338 LEs                ; Yes        ; |Game_Hub|Avatar_1:Player_1|Avatar_Dir_In[0]  ;
+; 258:1              ; 2 bits    ; 344 LEs       ; 6 LEs                ; 338 LEs                ; Yes        ; |Game_Hub|Avatar_2:Player_2|Avatar_Dir_In[0]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux3              ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux3              ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux6              ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux6              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux2              ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux2              ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux2              ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux2              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux5              ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux5              ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux5              ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux6              ;
+; 4:1                ; 36 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Map:Game_Map|Mux2                   ;
+; 4:1                ; 36 bits   ; 72 LEs        ; 72 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Map:Game_Map|Mux6                   ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux3              ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux5              ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |Game_Hub|Curr_State                          ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |Game_Hub|Curr_State                          ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux3              ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux6              ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux6              ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux5              ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux3              ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux2              ;
+; 65:1               ; 2 bits    ; 86 LEs        ; 86 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux12             ;
+; 65:1               ; 2 bits    ; 86 LEs        ; 86 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux12             ;
+; 68:1               ; 2 bits    ; 90 LEs        ; 90 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_1:Player_1|Mux9              ;
+; 68:1               ; 2 bits    ; 90 LEs        ; 90 LEs               ; 0 LEs                  ; No         ; |Game_Hub|Avatar_2:Player_2|Mux8              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Avatar_1:Player_1 ;
++----------------+------------+----------------------------------+
+; Parameter Name ; Value      ; Type                             ;
++----------------+------------+----------------------------------+
+; Avatar_X_Min   ; 0000000000 ; Unsigned Binary                  ;
+; Avatar_X_Max   ; 0111011111 ; Unsigned Binary                  ;
+; Avatar_Y_Min   ; 0000000000 ; Unsigned Binary                  ;
+; Avatar_Y_Max   ; 0111011111 ; Unsigned Binary                  ;
+; Avatar_X_Step  ; 0000000001 ; Unsigned Binary                  ;
+; Avatar_Y_Step  ; 0000000001 ; Unsigned Binary                  ;
+; Avatar_Size    ; 0000101000 ; Unsigned Binary                  ;
++----------------+------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Avatar_2:Player_2 ;
++----------------+------------+----------------------------------+
+; Parameter Name ; Value      ; Type                             ;
++----------------+------------+----------------------------------+
+; Avatar_X_Min   ; 0000000000 ; Unsigned Binary                  ;
+; Avatar_X_Max   ; 0111011111 ; Unsigned Binary                  ;
+; Avatar_Y_Min   ; 0000000000 ; Unsigned Binary                  ;
+; Avatar_Y_Max   ; 0111011111 ; Unsigned Binary                  ;
+; Avatar_X_Step  ; 0000000001 ; Unsigned Binary                  ;
+; Avatar_Y_Step  ; 0000000001 ; Unsigned Binary                  ;
+; Avatar_Size    ; 0000101000 ; Unsigned Binary                  ;
++----------------+------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Avatar_1:Player_1|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_uim ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Avatar_2:Player_2|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_uim ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Avatar_1:Player_1|lpm_divide:Div1 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_uim ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Avatar_2:Player_2|lpm_divide:Div1 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                                  ;
+; LPM_WIDTHD             ; 6              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_uim ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "Map:Game_Map|Treasure:Get_Treasures" ;
++-----------+-------+----------+----------------------------------+
+; Port      ; Type  ; Severity ; Details                          ;
++-----------+-------+----------+----------------------------------+
+; Map_Index ; Input ; Info     ; Stuck at GND                     ;
++-----------+-------+----------+----------------------------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "Map:Game_Map|Tree:Get_Trees" ;
++-----------+-------+----------+--------------------------+
+; Port      ; Type  ; Severity ; Details                  ;
++-----------+-------+----------+--------------------------+
+; Map_Index ; Input ; Info     ; Stuck at GND             ;
++-----------+-------+----------+--------------------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "Map:Game_Map|Wall:Get_Walls" ;
++-----------+-------+----------+--------------------------+
+; Port      ; Type  ; Severity ; Details                  ;
++-----------+-------+----------+--------------------------+
+; Map_Index ; Input ; Info     ; Stuck at GND             ;
++-----------+-------+----------+--------------------------+
+
+
++----------------------------------------------------------+
+; Port Connectivity Checks: "Map:Game_Map"                 ;
++------------------------+-------+----------+--------------+
+; Port                   ; Type  ; Severity ; Details      ;
++------------------------+-------+----------+--------------+
+; Avatar_Index_1[31..15] ; Input ; Info     ; Stuck at GND ;
+; Avatar_Index_2[31..15] ; Input ; Info     ; Stuck at GND ;
++------------------------+-------+----------+--------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "Avatar_2:Player_2"           ;
++-----------------------+-------+----------+--------------+
+; Port                  ; Type  ; Severity ; Details      ;
++-----------------------+-------+----------+--------------+
+; Avatar_X_Center[8..7] ; Input ; Info     ; Stuck at VCC ;
+; Avatar_X_Center[4..3] ; Input ; Info     ; Stuck at GND ;
+; Avatar_X_Center[1..0] ; Input ; Info     ; Stuck at GND ;
+; Avatar_X_Center[9]    ; Input ; Info     ; Stuck at GND ;
+; Avatar_X_Center[6]    ; Input ; Info     ; Stuck at GND ;
+; Avatar_X_Center[5]    ; Input ; Info     ; Stuck at VCC ;
+; Avatar_X_Center[2]    ; Input ; Info     ; Stuck at VCC ;
+; Avatar_Y_Center[8..7] ; Input ; Info     ; Stuck at VCC ;
+; Avatar_Y_Center[4..3] ; Input ; Info     ; Stuck at GND ;
+; Avatar_Y_Center[1..0] ; Input ; Info     ; Stuck at GND ;
+; Avatar_Y_Center[9]    ; Input ; Info     ; Stuck at GND ;
+; Avatar_Y_Center[6]    ; Input ; Info     ; Stuck at GND ;
+; Avatar_Y_Center[5]    ; Input ; Info     ; Stuck at VCC ;
+; Avatar_Y_Center[2]    ; Input ; Info     ; Stuck at VCC ;
++-----------------------+-------+----------+--------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "Avatar_1:Player_1"           ;
++-----------------------+-------+----------+--------------+
+; Port                  ; Type  ; Severity ; Details      ;
++-----------------------+-------+----------+--------------+
+; Avatar_X_Center[5..2] ; Input ; Info     ; Stuck at VCC ;
+; Avatar_X_Center[9..6] ; Input ; Info     ; Stuck at GND ;
+; Avatar_X_Center[1..0] ; Input ; Info     ; Stuck at GND ;
+; Avatar_Y_Center[5..2] ; Input ; Info     ; Stuck at VCC ;
+; Avatar_Y_Center[9..6] ; Input ; Info     ; Stuck at GND ;
+; Avatar_Y_Center[1..0] ; Input ; Info     ; Stuck at GND ;
++-----------------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 832                         ;
+; cycloneiii_ff         ; 621                         ;
+;     ENA               ; 95                          ;
+;     ENA SCLR          ; 60                          ;
+;     SCLR              ; 284                         ;
+;     SLD               ; 30                          ;
+;     plain             ; 152                         ;
+; cycloneiii_lcell_comb ; 5818                        ;
+;     arith             ; 349                         ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 181                         ;
+;         3 data inputs ; 148                         ;
+;     normal            ; 5469                        ;
+;         0 data inputs ; 36                          ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 301                         ;
+;         3 data inputs ; 1034                        ;
+;         4 data inputs ; 4084                        ;
+;                       ;                             ;
+; Max LUT depth         ; 30.70                       ;
+; Average LUT depth     ; 12.91                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:33     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Tue May 02 01:53:34 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab8 -c Bomberman
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file color_talbe.sv
+    Info (12023): Found entity 1: color_table File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/color_talbe.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bomb_sprite.sv
+    Info (12023): Found entity 1: bomb_sprites File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/bomb_sprite.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file back.sv
+    Info (12023): Found entity 1: back File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/back.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file exploded.sv
+    Info (12023): Found entity 1: exploded File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/exploded.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file font_rom.sv
+    Info (12023): Found entity 1: font_rom File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/font_rom.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tile.sv
+    Info (12023): Found entity 1: tile File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/tile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file right.sv
+    Info (12023): Found entity 1: right File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/right.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file solid.sv
+    Info (12023): Found entity 1: Solid File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Solid.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file flame.sv
+    Info (12023): Found entity 1: flame File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/flame.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file front.sv
+    Info (12023): Found entity 1: front File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/front.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.sv
+    Info (12023): Found entity 1: VGA_controller File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/VGA_controller.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file lab8.sv
+    Info (12023): Found entity 1: lab8 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/lab8.sv Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file hpi_io_intf.sv
+    Info (12023): Found entity 1: hpi_io_intf File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/hpi_io_intf.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file hexdriver.sv
+    Info (12023): Found entity 1: HexDriver File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/HexDriver.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file color_mapper.sv
+    Info (12023): Found entity 1: color_mapper File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Color_Mapper.sv Line: 17
+Info (12021): Found 1 design units, including 1 entities, in source file ball.sv
+    Info (12023): Found entity 1: ball File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/ball.sv Line: 17
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/nios_system.v
+    Info (12023): Found entity 1: nios_system File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/nios_system.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_reset_controller.v
+    Info (12023): Found entity 1: altera_reset_controller File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_reset_controller.v Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_reset_synchronizer.v
+    Info (12023): Found entity 1: altera_reset_synchronizer File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_reset_synchronizer.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_irq_mapper.sv
+    Info (12023): Found entity 1: nios_system_irq_mapper File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_irq_mapper.sv Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0.v
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_avalon_st_adapter.v
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_avalon_st_adapter File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_avalon_st_adapter.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv Line: 66
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+    Info (12023): Found entity 1: altera_avalon_st_handshake_clock_crosser File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_avalon_st_clock_crosser.v
+    Info (12023): Found entity 1: altera_avalon_st_clock_crosser File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_avalon_st_clock_crosser.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_avalon_st_pipeline_base.v
+    Info (12023): Found entity 1: altera_avalon_st_pipeline_base File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_avalon_st_pipeline_base.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_std_synchronizer_nocut.v
+    Info (12023): Found entity 1: altera_std_synchronizer_nocut File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_std_synchronizer_nocut.v Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_mux_001.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_rsp_mux_001 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_mux_001.sv Line: 51
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/altera_merlin_arbitrator.sv
+    Info (12023): Found entity 1: altera_merlin_arbitrator File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_merlin_arbitrator.sv Line: 103
+    Info (12023): Found entity 2: altera_merlin_arb_adder File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_merlin_arbitrator.sv Line: 228
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_mux.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_rsp_mux File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_demux_001.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_rsp_demux_001 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_demux_001.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_demux.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_rsp_demux File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_rsp_demux.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_mux_001.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_cmd_mux_001 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_mux_001.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_mux.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_cmd_mux File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_demux_001.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_cmd_demux_001 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_demux_001.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_demux.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_cmd_demux File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_cmd_demux.sv Line: 43
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_003.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_router_003_default_decode File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_003.sv Line: 45
+    Info (12023): Found entity 2: nios_system_mm_interconnect_0_router_003 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_003.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_002.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_router_002_default_decode File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_002.sv Line: 45
+    Info (12023): Found entity 2: nios_system_mm_interconnect_0_router_002 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_002.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_001.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_router_001_default_decode File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_001.sv Line: 45
+    Info (12023): Found entity 2: nios_system_mm_interconnect_0_router_001 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router_001.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router.sv
+    Info (12023): Found entity 1: nios_system_mm_interconnect_0_router_default_decode File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router.sv Line: 45
+    Info (12023): Found entity 2: nios_system_mm_interconnect_0_router File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_mm_interconnect_0_router.sv Line: 84
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_avalon_sc_fifo.v
+    Info (12023): Found entity 1: altera_avalon_sc_fifo File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_avalon_sc_fifo.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_merlin_slave_agent.sv
+    Info (12023): Found entity 1: altera_merlin_slave_agent File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_merlin_slave_agent.sv Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+    Info (12023): Found entity 1: altera_merlin_burst_uncompressor File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_merlin_burst_uncompressor.sv Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_merlin_master_agent.sv
+    Info (12023): Found entity 1: altera_merlin_master_agent File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_merlin_master_agent.sv Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_merlin_slave_translator.sv
+    Info (12023): Found entity 1: altera_merlin_slave_translator File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_merlin_slave_translator.sv Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/altera_merlin_master_translator.sv
+    Info (12023): Found entity 1: altera_merlin_master_translator File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/altera_merlin_master_translator.sv Line: 32
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_sysid_qsys_0.v
+    Info (12023): Found entity 1: nios_system_sysid_qsys_0 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_sysid_qsys_0.v Line: 34
+Info (12021): Found 2 design units, including 2 entities, in source file nios_system/synthesis/submodules/nios_system_sdram.v
+    Info (12023): Found entity 1: nios_system_sdram_input_efifo_module File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_sdram.v Line: 21
+    Info (12023): Found entity 2: nios_system_sdram File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_sdram.v Line: 159
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_otg_hpi_data.v
+    Info (12023): Found entity 1: nios_system_otg_hpi_data File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_otg_hpi_data.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_otg_hpi_cs.v
+    Info (12023): Found entity 1: nios_system_otg_hpi_cs File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_otg_hpi_cs.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_otg_hpi_address.v
+    Info (12023): Found entity 1: nios_system_otg_hpi_address File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_otg_hpi_address.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_onchip_memory_0.v
+    Info (12023): Found entity 1: nios_system_onchip_memory_0 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_onchip_memory_0.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_qsys_0.v
+    Info (12023): Found entity 1: nios_system_nios2_qsys_0 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0.v Line: 9
+Info (12021): Found 21 design units, including 21 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v
+    Info (12023): Found entity 1: nios_system_nios2_qsys_0_cpu_register_bank_a_module File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 21
+    Info (12023): Found entity 2: nios_system_nios2_qsys_0_cpu_register_bank_b_module File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 87
+    Info (12023): Found entity 3: nios_system_nios2_qsys_0_cpu_nios2_oci_debug File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 153
+    Info (12023): Found entity 4: nios_system_nios2_qsys_0_cpu_nios2_oci_break File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 295
+    Info (12023): Found entity 5: nios_system_nios2_qsys_0_cpu_nios2_oci_xbrk File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 588
+    Info (12023): Found entity 6: nios_system_nios2_qsys_0_cpu_nios2_oci_dbrk File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 795
+    Info (12023): Found entity 7: nios_system_nios2_qsys_0_cpu_nios2_oci_itrace File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 982
+    Info (12023): Found entity 8: nios_system_nios2_qsys_0_cpu_nios2_oci_td_mode File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 1115
+    Info (12023): Found entity 9: nios_system_nios2_qsys_0_cpu_nios2_oci_dtrace File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 1183
+    Info (12023): Found entity 10: nios_system_nios2_qsys_0_cpu_nios2_oci_compute_input_tm_cnt File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 1265
+    Info (12023): Found entity 11: nios_system_nios2_qsys_0_cpu_nios2_oci_fifo_wrptr_inc File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 1337
+    Info (12023): Found entity 12: nios_system_nios2_qsys_0_cpu_nios2_oci_fifo_cnt_inc File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 1380
+    Info (12023): Found entity 13: nios_system_nios2_qsys_0_cpu_nios2_oci_fifo File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 1427
+    Info (12023): Found entity 14: nios_system_nios2_qsys_0_cpu_nios2_oci_pib File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 1913
+    Info (12023): Found entity 15: nios_system_nios2_qsys_0_cpu_nios2_oci_im File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 1936
+    Info (12023): Found entity 16: nios_system_nios2_qsys_0_cpu_nios2_performance_monitors File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 2006
+    Info (12023): Found entity 17: nios_system_nios2_qsys_0_cpu_nios2_avalon_reg File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 2023
+    Info (12023): Found entity 18: nios_system_nios2_qsys_0_cpu_ociram_sp_ram_module File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 2116
+    Info (12023): Found entity 19: nios_system_nios2_qsys_0_cpu_nios2_ocimem File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 2181
+    Info (12023): Found entity 20: nios_system_nios2_qsys_0_cpu_nios2_oci File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 2362
+    Info (12023): Found entity 21: nios_system_nios2_qsys_0_cpu File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu.v Line: 2834
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu_debug_slave_sysclk.v
+    Info (12023): Found entity 1: nios_system_nios2_qsys_0_cpu_debug_slave_sysclk File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu_debug_slave_sysclk.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu_debug_slave_tck.v
+    Info (12023): Found entity 1: nios_system_nios2_qsys_0_cpu_debug_slave_tck File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu_debug_slave_tck.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu_debug_slave_wrapper.v
+    Info (12023): Found entity 1: nios_system_nios2_qsys_0_cpu_debug_slave_wrapper File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu_debug_slave_wrapper.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu_test_bench.v
+    Info (12023): Found entity 1: nios_system_nios2_qsys_0_cpu_test_bench File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_nios2_qsys_0_cpu_test_bench.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios_system/synthesis/submodules/nios_system_keycode.v
+    Info (12023): Found entity 1: nios_system_keycode File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_keycode.v Line: 21
+Info (12021): Found 5 design units, including 5 entities, in source file nios_system/synthesis/submodules/nios_system_jtag_uart_0.v
+    Info (12023): Found entity 1: nios_system_jtag_uart_0_sim_scfifo_w File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_jtag_uart_0.v Line: 21
+    Info (12023): Found entity 2: nios_system_jtag_uart_0_scfifo_w File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_jtag_uart_0.v Line: 78
+    Info (12023): Found entity 3: nios_system_jtag_uart_0_sim_scfifo_r File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_jtag_uart_0.v Line: 164
+    Info (12023): Found entity 4: nios_system_jtag_uart_0_scfifo_r File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_jtag_uart_0.v Line: 243
+    Info (12023): Found entity 5: nios_system_jtag_uart_0 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_jtag_uart_0.v Line: 331
+Info (12021): Found 4 design units, including 4 entities, in source file nios_system/synthesis/submodules/nios_system_altpll_pll.v
+    Info (12023): Found entity 1: nios_system_altpll_pll_dffpipe_l2c File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_altpll_pll.v Line: 38
+    Info (12023): Found entity 2: nios_system_altpll_pll_stdsync_sv6 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_altpll_pll.v Line: 99
+    Info (12023): Found entity 3: nios_system_altpll_pll_altpll_lqa2 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_altpll_pll.v Line: 131
+    Info (12023): Found entity 4: nios_system_altpll_pll File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_altpll_pll.v Line: 218
+Info (12021): Found 1 design units, including 1 entities, in source file color_mapper_final.sv
+    Info (12023): Found entity 1: Color_Mapper_Final File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Color_Mapper_Final.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file color_table.sv
+    Info (12023): Found entity 1: Color_Table File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Color_Table.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file game_hub.sv
+    Info (12023): Found entity 1: Game_Hub File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file map.sv
+    Info (12023): Found entity 1: Map File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Map.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga_controller_final.sv
+    Info (12023): Found entity 1: VGA_controller_Final File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/VGA_controller_Final.sv Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file avatar.sv
+    Info (12023): Found entity 1: Avatar File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar.sv Line: 16
+Info (12021): Found 1 design units, including 1 entities, in source file bomberman.sv
+    Info (12023): Found entity 1: Bomberman File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Bomberman.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file char_sprite.sv
+    Info (12023): Found entity 1: Char_Sprite File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Char_Sprite.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file testbench.sv
+    Info (12023): Found entity 1: testbench File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/testbench.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bomb.sv
+    Info (12023): Found entity 1: Bomb File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Bomb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tree.sv
+    Info (12023): Found entity 1: Tree File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Tree.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file avatar_1.sv
+    Info (12023): Found entity 1: Avatar_1 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar_1.sv Line: 16
+Info (12021): Found 1 design units, including 1 entities, in source file avatar_2.sv
+    Info (12023): Found entity 1: Avatar_2 File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar_2.sv Line: 16
+Info (12021): Found 1 design units, including 1 entities, in source file wall.sv
+    Info (12023): Found entity 1: Wall File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Wall.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file treasure.sv
+    Info (12023): Found entity 1: Treasure File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Treasure.sv Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at Avatar.sv(47): created implicit net for "Bomb_X" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar.sv Line: 47
+Warning (10236): Verilog HDL Implicit Net warning at Avatar.sv(48): created implicit net for "Bomb_Y" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar.sv Line: 48
+Warning (10037): Verilog HDL or VHDL warning at nios_system_sdram.v(318): conditional expression evaluates to a constant File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_sdram.v Line: 318
+Warning (10037): Verilog HDL or VHDL warning at nios_system_sdram.v(328): conditional expression evaluates to a constant File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_sdram.v Line: 328
+Warning (10037): Verilog HDL or VHDL warning at nios_system_sdram.v(338): conditional expression evaluates to a constant File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_sdram.v Line: 338
+Warning (10037): Verilog HDL or VHDL warning at nios_system_sdram.v(682): conditional expression evaluates to a constant File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/nios_system/synthesis/submodules/nios_system_sdram.v Line: 682
+Critical Warning (10846): Verilog HDL Instantiation warning at Bomberman.sv(138): instance has no name File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Bomberman.sv Line: 138
+Info (12127): Elaborating entity "Game_Hub" for the top level hierarchy
+Info (12128): Elaborating entity "Avatar_1" for hierarchy "Avatar_1:Player_1" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 110
+Info (12128): Elaborating entity "Avatar_2" for hierarchy "Avatar_2:Player_2" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 129
+Info (12128): Elaborating entity "Map" for hierarchy "Map:Game_Map" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 146
+Info (12128): Elaborating entity "Wall" for hierarchy "Map:Game_Map|Wall:Get_Walls" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Map.sv Line: 14
+Info (12128): Elaborating entity "Tree" for hierarchy "Map:Game_Map|Tree:Get_Trees" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Map.sv Line: 18
+Info (12128): Elaborating entity "Treasure" for hierarchy "Map:Game_Map|Treasure:Get_Treasures" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Map.sv Line: 22
+Info (278001): Inferred 4 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Avatar_1:Player_1|Div0" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar_1.sv Line: 169
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Avatar_2:Player_2|Div0" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar_2.sv Line: 169
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Avatar_1:Player_1|Div1" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar_1.sv Line: 170
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Avatar_2:Player_2|Div1" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar_2.sv Line: 170
+Info (12130): Elaborated megafunction instantiation "Avatar_1:Player_1|lpm_divide:Div0" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar_1.sv Line: 169
+Info (12133): Instantiated megafunction "Avatar_1:Player_1|lpm_divide:Div0" with the following parameter: File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Avatar_1.sv Line: 169
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "6"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_uim.tdf
+    Info (12023): Found entity 1: lpm_divide_uim File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/lpm_divide_uim.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_mlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_mlh File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/sign_div_unsign_mlh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_07f.tdf
+    Info (12023): Found entity 1: alt_u_div_07f File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/alt_u_div_07f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/db/add_sub_8pc.tdf Line: 23
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Avatar_Step_1[8]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_Step_1[9]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_Step_2[8]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_Step_2[9]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_S[0]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_S[1]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_S[2]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_S[3]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_S[4]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_S[5]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_S[6]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_S[7]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_S[8]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Avatar_S[9]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 6
+    Warning (13410): Pin "Wall_Map[0]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[1]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[2]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[3]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[4]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[5]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[6]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[7]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[8]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[9]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[10]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[11]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[12]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[13]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[14]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[15]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[16]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[17]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[18]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[19]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[20]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[21]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[22]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[23]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[24]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[25]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[26]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[27]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[28]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[29]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[30]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[31]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[32]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[33]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[34]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[35]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[36]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[37]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[38]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[39]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[40]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[41]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[42]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[43]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[44]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[45]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[46]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[47]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[48]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[49]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[50]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[51]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[52]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[53]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[54]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[55]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[56]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[57]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[58]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[59]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[60]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[61]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[62]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[63]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[64]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[65]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[66]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[67]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[68]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[69]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[70]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[71]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[72]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[73]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[74]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[75]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[76]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[77]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[78]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[79]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[80]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[81]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[82]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[83]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[84]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[85]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[86]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[87]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[88]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[89]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[90]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[91]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[92]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[93]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[94]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[95]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[96]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[97]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[98]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[99]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[100]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[101]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[102]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[103]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[104]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[105]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[106]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[107]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[108]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[109]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[110]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[111]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[112]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[113]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[114]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[115]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[116]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[117]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[118]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[119]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[120]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[121]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[122]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[123]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[124]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[125]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[126]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[127]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[128]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[129]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[130]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[131]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[132]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[133]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[134]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[135]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[136]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[137]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[138]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[139]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[140]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[141]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[142]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Wall_Map[143]" is stuck at VCC File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[0]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[1]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[2]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[3]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[4]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[5]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[6]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[7]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[8]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[9]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[10]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[11]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[12]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[13]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[14]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[15]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[16]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[17]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[18]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[19]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[20]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[21]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[22]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[23]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[24]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[25]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[26]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[27]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[28]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[31]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[32]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[33]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[34]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[35]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[36]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[37]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[38]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[39]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[41]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[42]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[44]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[45]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[46]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[47]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[48]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[49]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[50]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[52]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[54]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[55]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[57]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[58]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[59]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[60]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[61]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[63]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[64]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[68]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[70]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[71]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[72]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[73]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[75]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[79]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[80]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[82]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[83]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[84]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[85]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[86]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[88]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[89]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[91]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[93]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[94]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[95]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[96]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[97]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[98]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[99]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[101]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[102]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[104]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[105]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[106]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[107]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[108]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[109]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[110]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[111]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[112]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[115]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[116]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[117]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[118]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[119]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[120]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[121]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[122]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[123]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[124]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[125]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[126]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[127]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[128]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[129]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[130]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[131]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[132]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[133]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[134]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[135]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[136]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[137]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[138]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[139]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[140]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[141]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[142]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+    Warning (13410): Pin "Tree_Map[143]" is stuck at GND File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 7
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Warning (20013): Ignored 27 assignments for entity "DE2_115_Default" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_global_assignment -name LL_ROOT_REGION ON -entity DE2_115_Default -section_id "Root Region" was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name LL_MEMBER_STATE LOCKED -entity DE2_115_Default -section_id "Root Region" was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name LL_ROUTING_REGION OFF -entity DE2_115_Default -section_id "Root Region" was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_PRESERVE_HIGH_SPEED_TILES ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IGNORE_SOURCE_FILE_CHANGES OFF -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ALWAYS_USE_QXP_NETLIST OFF -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_COLOR 16764057 -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_ASSIGNMENTS ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_ASSIGNMENTS REPLACE_CONFLICTING -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_EXISTING_LOGICLOCK_REGIONS UPDATE_CONFLICTING -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PIN_ASSIGNMENTS ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_IMPORT_PROMOTE_ASSIGNMENTS ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_TYPE STANDARD_PARTITION -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ALLOW_MULTIPLE_PERSONAS OFF -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ASD_REGION_ID 1 -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name CROSS_BOUNDARY_OPTIMIZATIONS OFF -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_CONSTANTS_ON_INPUTS ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PROPAGATE_INVERSIONS_ON_INPUTS ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name REMOVE_LOGIC_ON_UNCONNECTED_OUTPUTS ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_INPUTS ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name MERGE_EQUIVALENT_BIDIRS ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name ABSORB_PATHS_FROM_OUTPUTS_TO_INPUTS ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity DE2_115_Default -section_id Top was ignored
+    Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity DE2_115_Default -section_id Top was ignored
+Warning (20013): Ignored 23 assignments for entity "altera_avalon_sc_fifo" -- entity does not exist in design
+Warning (20013): Ignored 23 assignments for entity "altera_avalon_st_handshake_clock_crosser" -- entity does not exist in design
+Warning (20013): Ignored 64 assignments for entity "altera_merlin_master_agent" -- entity does not exist in design
+Warning (20013): Ignored 55 assignments for entity "altera_merlin_master_translator" -- entity does not exist in design
+Warning (20013): Ignored 53 assignments for entity "altera_merlin_slave_agent" -- entity does not exist in design
+Warning (20013): Ignored 68 assignments for entity "altera_merlin_slave_translator" -- entity does not exist in design
+Warning (20013): Ignored 35 assignments for entity "altera_reset_controller" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system" -- entity does not exist in design
+Warning (20013): Ignored 78 assignments for entity "nios_system_altpll_pll" -- entity does not exist in design
+Warning (20013): Ignored 14 assignments for entity "nios_system_irq_mapper" -- entity does not exist in design
+Warning (20013): Ignored 24 assignments for entity "nios_system_jtag_uart_0" -- entity does not exist in design
+Warning (20013): Ignored 22 assignments for entity "nios_system_keycode" -- entity does not exist in design
+Warning (20013): Ignored 12 assignments for entity "nios_system_mm_interconnect_0" -- entity does not exist in design
+Warning (20013): Ignored 32 assignments for entity "nios_system_mm_interconnect_0_avalon_st_adapter" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_mm_interconnect_0_avalon_st_adapter_error_adapter_0" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_system_mm_interconnect_0_cmd_demux" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_system_mm_interconnect_0_cmd_demux_001" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_mm_interconnect_0_cmd_mux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_mm_interconnect_0_cmd_mux_001" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_system_mm_interconnect_0_router" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_system_mm_interconnect_0_router_001" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_system_mm_interconnect_0_router_002" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_system_mm_interconnect_0_router_003" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_system_mm_interconnect_0_rsp_demux" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_system_mm_interconnect_0_rsp_demux_001" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_mm_interconnect_0_rsp_mux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_mm_interconnect_0_rsp_mux_001" -- entity does not exist in design
+Warning (20013): Ignored 149 assignments for entity "nios_system_nios2_qsys_0" -- entity does not exist in design
+Warning (20013): Ignored 179 assignments for entity "nios_system_nios2_qsys_0_cpu" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_system_onchip_memory_0" -- entity does not exist in design
+Warning (20013): Ignored 22 assignments for entity "nios_system_otg_hpi_address" -- entity does not exist in design
+Warning (20013): Ignored 22 assignments for entity "nios_system_otg_hpi_cs" -- entity does not exist in design
+Warning (20013): Ignored 25 assignments for entity "nios_system_otg_hpi_data" -- entity does not exist in design
+Warning (20013): Ignored 34 assignments for entity "nios_system_sdram" -- entity does not exist in design
+Warning (20013): Ignored 10 assignments for entity "nios_system_sysid_qsys_0" -- entity does not exist in design
+Info (144001): Generated suppressed messages file D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Bomberman.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 8 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "Keycode[8]" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 3
+    Warning (15610): No output dependent on input pin "Keycode[9]" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 3
+    Warning (15610): No output dependent on input pin "Keycode[10]" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 3
+    Warning (15610): No output dependent on input pin "Keycode[11]" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 3
+    Warning (15610): No output dependent on input pin "Keycode[12]" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 3
+    Warning (15610): No output dependent on input pin "Keycode[13]" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 3
+    Warning (15610): No output dependent on input pin "Keycode[14]" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 3
+    Warning (15610): No output dependent on input pin "Keycode[15]" File: D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Game_Hub.sv Line: 3
+Info (21057): Implemented 6648 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 814 output pins
+    Info (21061): Implemented 5816 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 359 warnings
+    Info: Peak virtual memory: 723 megabytes
+    Info: Processing ended: Tue May 02 01:54:19 2017
+    Info: Elapsed time: 00:00:45
+    Info: Total CPU time (on all processors): 00:00:57
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Dropbox/UIUC/ECE385/FPGA/Quartus_16.1/ECE385/Experiment_8/Bomberman.map.smsg.
+
+

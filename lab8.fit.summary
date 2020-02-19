@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu May 04 04:22:19 2017
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : lab8
+Top-level Entity Name : Bomberman
+Family : Cyclone IV E
+Device : EP4CE115F29C7
+Timing Models : Final
+Total logic elements : 3,756 / 114,480 ( 3 % )
+    Total combinational functions : 3,120 / 114,480 ( 3 % )
+    Dedicated logic registers : 2,111 / 114,480 ( 2 % )
+Total registers : 2230
+Total pins : 170 / 529 ( 32 % )
+Total virtual pins : 0
+Total memory bits : 44,032 / 3,981,312 ( 1 % )
+Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )
+Total PLLs : 1 / 4 ( 25 % )

@@ -1,0 +1,6 @@
+module enemy(
+	input Frame_Clk, Reset,
+	input [9:0] Avatar_X_Center, Avatar_Y_Center,
+	input [143:0] Wall_Map, Bomb_Map, Tree_Map, Treasure_Map,
+	output [9:0] Avatar_X, Avatar_Y, Avatar_Step, Bomb_X, Bomb_Y
+);

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu May 04 04:21:55 2017
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : lab8
+Top-level Entity Name : Bomberman
+Family : Cyclone IV E
+Total logic elements : 4,075
+    Total combinational functions : 3,105
+    Dedicated logic registers : 2,172
+Total registers : 2172
+Total pins : 170
+Total virtual pins : 0
+Total memory bits : 44,032
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

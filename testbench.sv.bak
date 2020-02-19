@@ -1,0 +1,40 @@
+module testbench();
+
+timeunit 10ns;
+timeprecision 1ns;
+
+logic Frame_Clk = 0;
+logic Reset;
+logic [15:0] Keycode;
+logic [9:0] Avatar_X_Center;
+logic [9:0] Avatar_Y_Center;
+logic io_ready;
+logic aes_ready;
+
+Avatar Avatar_0 (.*);	
+
+// Toggle the clock
+// #1 means wait for a delay of 1 timeunit
+always begin : CLOCK_GENERATION
+#1 Frame_Clk = ~Frame_Clk;
+end
+
+initial begin: CLOCK_INITIALIZATION
+    Frame_Clk = 0;
+end 
+
+
+initial begin: TEST_VECTORS
+reset_n = 1'b1;
+Avatar_X_Center = 10'd120;
+Avatar_Y_Center = 10'd120;
+msg_en = 128'hdaec3055df058e1c39e814ea76f6747e;
+key = 128'h000102030405060708090a0b0c0d0e0f;
+io_ready = 1'b0;
+
+#2 Reset = 1'b0;
+#2 Reset = 1'b1;
+
+#20 io_ready = 1'b1;
+end
+endmodule

@@ -1,0 +1,17 @@
+02:31:25 **** Build of configuration Nios II for project usb_kb ****
+make all 
+make: /bin/sh: Command not found
+make: /bin/sh: Command not found
+make: /bin/sh: Command not found
+make: /bin/sh: Command not found
+make: /bin/sh: Command not found
+make: /bin/sh: Command not found
+Info: Building ../usb_kb_bsp/
+/usr/bin/make --no-print-directory -C ../usb_kb_bsp/
+make[1]: /bin/sh: Command not found
+make[1]: *** No rule to make target '/system.h', needed by 'all'.  Stop.
+make: *** [../usb_kb_bsp/-recurs-make-lib] Error 2
+Makefile:901: recipe for target '../usb_kb_bsp/-recurs-make-lib' failed
+
+02:31:25 Build Finished (took 585ms)
+

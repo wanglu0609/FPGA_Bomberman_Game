@@ -1,0 +1,16 @@
+module Bomb (
+	input Frame_Clk, Reset;
+	input [143:0] Bomb_Map_In;
+	input [9:0] Bomb_X, Bomb_Y;
+	output [143:0] Bomn_Map;
+);
+	assign index = 
+	if (Reset)
+		Bomb_Map = 144'b0;
+	else
+	begin	
+		always_ff@(posedge clk)
+			if (Bomb_X == 12'b0 && Bomb_Y == 12'b0)
+				Bomb_Map <= Bomb_Map_In;
+			else
+				
